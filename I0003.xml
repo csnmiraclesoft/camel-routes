@@ -3,7 +3,7 @@
 	<route id="I0003">
 		<from uri="wmq:queue:Test.01?selector=scenarioId%3D'I0003'" />
 		<to uri="audit:Inlet?level=info"/>
-		[OutletEncoding]<to uri="[KafkaOutlet]"/>
+		[OutletEncoding]<to uri="kafka:Test.Topic2?brokerslocalhost:9092"/>
 		<to uri="audit:Outlet?level=info"/>
 	</route>
 </routes>
