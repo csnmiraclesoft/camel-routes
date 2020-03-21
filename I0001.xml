@@ -3,7 +3,14 @@
 	<route id="I0001">
 		<from uri="wmq:queue:DEV.QUEUE.1?selector=scenarioId%3D'I0001'" />
 		<to uri="audit:Inlet?level=info"/>
-		<to uri="wmq:queue:DEV.QUEUE.3"/>
-		<to uri="audit:Outlet?level=info"/>
+		<setHeader name="mapName">
+			<simple>Upper_Map</simple>
+		</setHeader>
+		<setHeader name="endpoint">
+			<simple>wmq:queue:DEV.QUEUE.4</simple>
+		</setHeader>
+		<to uri="audit:SetParams?level=info"/>
+		<to uri="wmq:queue:DEV.QUEUE.2"/>
+		<to uri="audit:Transform?level=info"/>
 	</route>
 </routes>
