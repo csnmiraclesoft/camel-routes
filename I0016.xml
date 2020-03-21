@@ -2,7 +2,9 @@
 <routes xmlns="http://camel.apache.org/schema/spring">
 	<route id="I0016">
 		<to uri="audit:Inlet?level=info"/>
-		[OutletEncoding]<to uri="DEV.QUEUE.4"/>
+		<marshal ref="baseWith64">
+			<base64 />
+		</marshal>
 		<to uri="kafka:TestTopic2?brokers=localhost:9092" />
 		<to uri="audit:Outlet?level=info"/>
 	</route>
