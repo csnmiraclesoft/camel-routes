@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <routes xmlns="http://camel.apache.org/schema/spring">
 	<route id="I0015">
-		<from uri="file:c:/usr/data?move=c:/usr/archive/${file:name}" />
+		<from uri="file:c:/usr/data?move=c:/usr/archive/${file:name}_${date:now:yyyyMMdd}" />
 		<to uri="audit:Inlet?level=info"/>
 		<to uri="wmq:queue:DEV.QUEUE.4"/>
 		<to uri="file:c:/usr/target" />
