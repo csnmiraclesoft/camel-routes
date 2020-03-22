@@ -3,9 +3,9 @@
 	<route id="I0017">
 		<from uri="wmq:queue:DEV.QUEUE.1?selector=scenarioId%3D'I0017'" />
 		<to uri="audit:Inlet?level=info"/>
-		<to uri="wmq:queue:DEV.QUEUE.4"/>
 		<to uri="xslt:file:/XSLT_Maps/XmlToJson.xslt" />
 		<to uri="audit:Transform?level=INFO" />
+		<to uri="wmq:queue:DEV.QUEUE.4"/>
 		<to uri="audit:Outlet?level=info"/>
 	</route>
 </routes>
