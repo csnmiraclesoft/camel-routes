@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes xmlns="http://camel.apache.org/schema/spring">
+	<route id="I0018ITX">
+		<from uri="wmq:queue:DEV.QUEUE.2?selector=scenarioId%3D'I0018'" />
+		<to uri="audit:Inlet?level=info"/>
+		<process ref="iTXProcessor" />
+		<to uri="audit:ItxProcessor?level=info"/>
+		<recipientList>
+			<header>endpoint</header>
+		</recipientList>
+		<to uri="audit:Outlet?level=info"/>
+	</route>
+</routes>
