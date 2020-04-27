@@ -2,9 +2,11 @@
 <routes xmlns="http://camel.apache.org/schema/spring">
 	<route id="I0015">
 		<from uri="file:c:/usr/data?move=c:/usr/archive/${file:name}_${date:now:yyyyMMdd}" />
-		<to uri="audit:Inlet?level=info"/>
+		<to uri="audit:FileInlet?level=info" />
 		<to uri="wmq:queue:DEV.QUEUE.4"/>
+		<to uri="wmq:queue:DEV.QUEUE.4" />
+		<to uri="audit:Outlet?level=info" />
 		<to uri="file:c:/usr/target" />
-		<to uri="audit:Outlet?level=info"/>
+		<to uri="audit:FileOutlet?level=info" />
 	</route>
 </routes>
