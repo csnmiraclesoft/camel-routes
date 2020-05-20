@@ -5,7 +5,7 @@
 		<to uri="audit:FileInlet?level=info" />
 		<to uri="wmq:queue:DEV.QUEUE.4" />
 		<to uri="audit:Outlet?level=info" />
-		<to uri="file:c:/usr/target/QTF_${date:now:yyyyMMdd}.txt" />
+		<to uri="file:c:/usr/target/QTFDynamic Date.txt" />
 		<to uri="audit:FileOutlet?level=info" />
 	</route>
 </routes>
