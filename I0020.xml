@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <routes xmlns="http://camel.apache.org/schema/spring">
 	<route id="I0020">
-		<from uri="file:/usr/surce?move=/usr/archieve/${file:name}_${date:now:yyyyMMdd}" />
+		<from uri="file:/usr/surce" />
 		<to uri="audit:FileInlet?level=info" />
 		<marshal ref="baseWith64">base64</marshal>
 		<setHeader headerName="CamelHttpMethod">
