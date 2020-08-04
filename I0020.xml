@@ -3,7 +3,6 @@
 	<route id="I0020">
 		<from uri="file:/usr/surce" />
 		<to uri="audit:FileInlet?level=info" />
-		<marshal ref="baseWith64">base64</marshal>
 		<setHeader headerName="CamelHttpMethod">
 			<constant>GET</constant>
 		</setHeader>
@@ -15,6 +14,7 @@
 			<simple>${bodyAs(String)}</simple>
 		</transform>
 		<to uri="audit:Rest?level=INFO"/>
+		<marshal ref="baseWith64">base64</marshal>
 		<to uri="file:/usr/target/FT.txt" />
 		<to uri="audit:FileOutlet?level=info" />
 	</route>
