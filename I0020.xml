@@ -3,7 +3,7 @@
 	<route id="I0020">
 		<from uri="file:/usr/surce" />
 		<to uri="audit:FileInlet?level=info" />
-		[InletEncoding]<setHeader headerName="CamelHttpMethod">
+		None<setHeader headerName="CamelHttpMethod">
 			<constant>GET</constant>
 		</setHeader>
 		<setHeader headerName="CamelHttpQuery">
