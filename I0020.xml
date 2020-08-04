@@ -14,7 +14,7 @@
 			<simple>${bodyAs(String)}</simple>
 		</transform>
 		<to uri="audit:Rest?level=INFO"/>
-		<to uri="file:/usr/target/FT__${date:now:yyyyMMddHHmmssSSS}.txt" />
+		<to uri="file:/usr/target/FT.txt" />
 		<to uri="audit:FileOutlet?level=info" />
 	</route>
 </routes>
