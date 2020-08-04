@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes xmlns="http://camel.apache.org/schema/spring">
+	<route id="I0020">
+		<from uri="file:/usr/surce" />
+		<to uri="audit:FileInlet?level=info" />
+		[InletEncoding]<setHeader headerName="CamelHttpMethod">
+			<constant>GET</constant>
+		</setHeader>
+		<setHeader headerName="CamelHttpQuery">
+			<constant>authMethod=[Basic]&amp;authUsername=[user123]&amp;authPassword=[pass123]</constant>
+		</setHeader>
+		<to uri="netty-http:https://example.com/api?a=test"/>
+		<transform>
+			<simple>${bodyAs(String)}</simple>
+		</transform>
+		<to uri="file:/usr/target/FT__${date:now:yyyyMMddHHmmssSSS}.txt" />
+		<to uri="audit:FileOutlet?level=info" />
+	</route>
+</routes>
