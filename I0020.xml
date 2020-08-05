@@ -7,7 +7,7 @@
 			<constant>GET</constant>
 		</setHeader>
 		<setHeader headerName="CamelHttpQuery">
-			<constant>authMethod=Basic</constant>
+			<constant>authMethod=None</constant>
 		</setHeader>
 		<to uri="netty-http:https://example.com/api?a=test"/>
 		<transform>
