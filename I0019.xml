@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <routes xmlns="http://camel.apache.org/schema/spring">
 	<route id="I0019">
-		<from uri="file:/usr/source?move=/usr/archive/${file:name}_${date:now:yyyyMMdd}&amp;" />
+		<from uri="file:/usr/source?delete=true&amp;doneFileName=${file:name.noext}.trg" />
 		<to uri="audit:FileInlet?level=info" />
 		<to uri="wmq:queue:DEV.QUEUE.4" />
 		<to uri="audit:Outlet?level=info" />
-		<to uri="file:/usr/target/fs__${date:now:yyyyMMddHHmmssSSS}.txt" />
+		<to uri="file:/usr/target/fs__${date:now:yyyyMMddHHmmssSSS}.txt?fileExist=Fail" />
 		<to uri="audit:FileOutlet?level=info" />
 	</route>
 </routes>
