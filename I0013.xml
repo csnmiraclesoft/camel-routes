@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes xmlns="http://camel.apache.org/schema/spring">
+	<route id="I0013">
+		<from uri="DEV.QUEUE.3?selector=scenarioId%3D'I0013'" />
+		<to uri="audit:Inlet?level=info"/>
+		<setHeader name="mapName">
+			<simple>Upper_Map</simple>
+		</setHeader>
+		<setHeader name="endpoint">
+			<simple>mq:queue:DEV.QUEUE.4</simple>
+		</setHeader>
+		<to uri="audit:SetParams?level=info"/>
+		<to uri="mq:queue:DEV.QUEUE.2"/>
+		<to uri="audit:Transform?level=info"/>
+	</route>
+</routes>
