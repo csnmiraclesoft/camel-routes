@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes xmlns="http://camel.apache.org/schema/spring">
+	<route id="I0008">
+		<from uri="mq:queue:DEV.QUEUE.1?selector=scenarioId%3D'I0008'" />
+		<to uri="audit:Inlet?level=info" />
+		<to uri="mq:queue:DEV.QUEUE.4" />
+		<to uri="audit:Outlet?level=info" />
+	</route>
+</routes>
