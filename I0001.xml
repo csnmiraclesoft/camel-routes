@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <routes xmlns="http://camel.apache.org/schema/spring">
 	<route id="I0001">
-		<from uri="mq:queue:INLET?selector=scenarioId%3D'I0001'" />
+		<from uri="wmq:queue:INLET?selector=scenarioId%3D'I0001'" />
 		<to uri="audit:Inlet?level=info" />
-		<to uri="mq:queue:OUTLET" />
+		<to uri="amq:queue:OUTLET" />
 		<to uri="audit:Outlet?level=info" />
 	</route>
 </routes>
