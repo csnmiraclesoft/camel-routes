@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <routes xmlns="http://camel.apache.org/schema/spring">
 	<route id="I0002">
-		<from uri="wmq:queue:DEV.QUEUE.1?selector=scenarioId%3D'I0002'" />
-		<to uri="audit:Inlet?level=info"/>
-		<setHeader name="mapName">
-			<simple>Upper_Map</simple>
+		<from uri="DatastageConn:queue:INLET?selector=scenarioId%3D'I0002'" />
+		<to uri="audit:Inlet?level=info" />
+		<setHeader headerName="CamelHttpMethod">
+			<constant>GET</constant>
 		</setHeader>
-		<setHeader name="endpoint">
-			<simple>wmq:queue:DEV.QUEUE.4</simple>
-		</setHeader>
-		<to uri="audit:SetParams?level=info"/>
-		<to uri="wmq:queue:DEV.QUEUE.2"/>
-		<to uri="audit:Transform?level=info"/>
+		<to uri="http://dummy.restapiexample.com/api/v1/employee/1"/>
+		<transform>
+			<simple>${bodyAs(String)}</simple>
+		</transform>
+		<to uri="audit:Rest?level=INFO"/>
+		<to uri="file:/usr/mints/global_eai/Global/Test/target/rest_test.txt" />
+		<to uri="audit:FileOutlet?level=info" />
 	</route>
 </routes>
