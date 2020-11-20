@@ -3,7 +3,7 @@
 	<route id="I0001">
 		<from uri="Datastage:queue:INLET?selector=scenarioId%3D'I0001'" />
 		<to uri="audit:Inlet?level=info" />
-		<to uri="Twd:queue:OUTLET" />
+		<to uri="Sap:queue:OUTLET" />
 		<to uri="audit:Outlet?level=info" />
 	</route>
 </routes>
