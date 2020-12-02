@@ -12,9 +12,6 @@
 		<setHeader name="accept">
 			<constant>application/Xml</constant>
 		</setHeader>
-		<setHeader name="TEST">
-			<constant>TEST</constant>
-		</setHeader>
 		<to uri="http://localhost/test"/>
 		<transform>
 			<simple>${bodyAs(String)}</simple>
