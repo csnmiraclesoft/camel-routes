@@ -10,7 +10,10 @@
 			<constant>application/json</constant>
 		</setHeader>
 		<setHeader name="accept">
-			<constant>application/Xml</constant>
+			<constant>application/json</constant>
+		</setHeader>
+		<setHeader name="TEST">
+			<constant>REST</constant>
 		</setHeader>
 		<to uri="http://localhost/test"/>
 		<transform>
